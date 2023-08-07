@@ -61,7 +61,10 @@ function App() {
                     <td>{coin.symbol}</td>
                     <td>${coin.total_volume.toLocaleString()}</td>
                     <td>{coin.market_cap.toLocaleString()}</td>
-                    <td>{coin.price_change_percentage_24h.toFixed(2)}%</td>
+                    {coin.price_change_percentage_24h < 0 ?
+                      <td className='red'>{coin.price_change_percentage_24h.toFixed(2)}%</td>
+                      : <td className='green'>{coin.price_change_percentage_24h.toFixed(2)}%</td>}
+
                   </tr>
                 )
               })
